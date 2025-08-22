@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Store - Tienda Online</title>
+    <link rel="stylesheet" href="tienda.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo"><img class="logoCar" src="../assets/compras.png" alt=""> Golden Store</div>
+            <button class="cart-button" onclick="openCart()">
+                🛍️ Carrito
+                <span class="cart-count" id="cartCount">0</span>
+            </button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="filters-section">
+            <div class="filters-grid">
+                <input type="text" id="searchInput" class="search-input" placeholder="🔍 Buscar productos por nombre...">
+                <select id="categoryFilter" class="category-select">
+                    <option value="">Todas las categorías</option>
+                </select>
+                <button class="clear-filters-btn" onclick="clearBasicFilters()">Limpiar filtros</button>
+            </div>
+            <div id="resultsInfo" class="results-info"></div>
+        </div>
+        
+        <div id="loading" class="loading">
+            <div>🔄 Cargando productos...</div>
+        </div>
+        <div id="productsContainer" class="products-grid"></div>
+    </div>
+
+
+
+    <!-- Barra de navegación inferior -->
+    <div class="bottom-nav">
+        <div class="nav-item active" onclick="showStore()">
+            <div class="nav-icon">🛒</div>
+            <div class="nav-label">Tienda</div>
+        </div>
+        <div class="nav-item" onclick="openSearchModal()">
+            <div class="nav-icon">🔍</div>
+            <div class="nav-label">Buscar</div>
+        </div>
+        <div class="nav-item" onclick="showSettings()">
+            <div class="nav-icon">⚙️</div>
+            <div class="nav-label">Ajustes</div>
+        </div>
+    </div>
+
+    <!-- Modal del carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCart()">&times;</span>
+            <h2>🛍️ Tu Carrito de Compras</h2>
+            <div id="cartItems"></div>
+            <div class="cart-total" id="cartTotal" style="display: none;">
+                <div>Total: $<span class="total-amount" id="totalAmount">0.00</span></div>
+                <button class="checkout-button" onclick="processCheckout()">
+                    🛒 Comprar Ahora
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Contenedor oculto pal mensaje -->
+    <div id="purchase-message" class="hidden"></div>
+
+    <!-- Modal de búsqueda avanzada -->
+    <div id="searchModal" class="modal">
+        <div class="search-modal-content">
+            <div class="search-modal-header">
+                <div class="search-modal-title">
+                    🔍 Búsqueda Avanzada
+                </div>
+                <span class="close" onclick="closeSearchModal()">&times;</span>
+            </div>
+            
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label class="filter-label">🔎 Buscar por nombre:</label>
+                    <input type="text" id="modalSearchInput" class="search-input" placeholder="Nombre del producto...">
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">📂 Categoría:</label>
+                    <select id="modalCategoryFilter" class="category-select">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label class="filter-label">💰 Rango de precios:</label>
+                    <div class="price-range">
+                        <input type="number" id="minPrice" class="price-input" placeholder="Precio mínimo" min="0" step="0.01">
+                        <input type="number" id="maxPrice" class="price-input" placeholder="Precio máximo" min="0" step="0.01">
+                    </div>
+                </div>
+                
+                <div class="filter-buttons">
+                    <button class="apply-btn" onclick="applyAdvancedFilters()">✅ Aplicar Filtros</button>
+                    <button class="clear-all-btn" onclick="clearAllFilters()">🗑️ Limpiar Todo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje de éxito -->
+    <div id="successMessage" class="success-message">
+        ✅ Producto agregado al carrito
+    </div>
+
+    <!-- Modal de Ajustes -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSettings()">&times;</span>
+            <h2>⚙️ Ajustes</h2>
+            <p><strong>Usuario:</strong> <span id="userNameDisplay"></span></p>
+        
+            <div class="filter-group">
+                <label for="email">📧 Correo electrónico:</label>
+                <input type="email" id="email" class="search-input" placeholder="Ingresa tu correo">
+            </div>
+            
+            <div class="filter-group">
+                <label for="address">🏠 Dirección:</label>
+                <input type="text" id="address" class="search-input" placeholder="Ingresa tu dirección">
+            </div>
+            
+            <button class="clear-filters-btn" onclick="logout()">🚪 Cerrar Sesión</button>
+            <button class="confirm-btn" onclick="saveUserData()">💾 Guardar cambios</button>
+        </div>
+    </div>
+  
+
+    <script src="tienda.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #fff, #333);
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 900px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.left {
+    text-align: center;
+    color: #3c3c3c;
+}
+
+.left img {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+.left h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.left p {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    color: #fff;
+}
+
+.left .Carrito{
+    margin: 10px 0;
+    
+}
+
+  /* Lado derecho */
+.login-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.login-box h2 {
+    margin-bottom: 20px;
+    border: 1px solid #333;
+    padding: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #666;
+    outline: none;
+    border-radius: 10px ;
+}
+
+.login-box .icon {
+    margin: 20px 0;
+}
+
+.login-box .button {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+}
+p{
+    margin-top: 10px;
+}
+a{
+    text-decoration: none;
+    display: block;
+    color: #000000;
+}
+
+.login-box .button:hover {
+    background: #fca311;
+    border: none;
+    color: #fff;
+}
